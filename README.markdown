@@ -40,3 +40,5 @@ Then just have:
 
 And add your own assertion methods to each class.
 
+Then when using `Assert.that` in your tests, just make sure you import your own `Assert` subclass instead of the base class (or JUnit's `Assert` for that matter).
+
