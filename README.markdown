@@ -12,9 +12,11 @@ Example
 
 This is a lot like separate `StringAssert`, `ListAssert`, etc., classes, which I had used before. `Assert.that` is just a hack to move the choosing of an `XxxAssert` class to the compiler based on method overloading instead of the programming typing each one out.
 
-This is somewhat like Hamcrest, but without the Matcher static import methods. Nothing against static import methods, but I like `assertThat` returning the appropriate `StringAsserter`, `ListAsserter`, etc., just based on basic Java method overloading.
+This is somewhat like [Hamcrest][1] (which was integrated into JUnit 4.4), but without the Matcher static import methods. Nothing against static import methods, but I like `assertThat` returning the appropriate `StringAsserter`, `ListAsserter`, etc., just based on basic Java method overloading.
 
 Granted, this approach cannot handle `or` type nested logical statements, but that is just fine with me. I like simple assertions.
+
+[1]: http://code.google.com/p/hamcrest/
 
 Extending
 =========
