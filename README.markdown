@@ -5,14 +5,14 @@ Example
 =======
 
     String foo = "asdf";
-    Assert.assertThat(foo).equals("asdf");
+    Assert.that(foo).equals("asdf");
 
     List list = ...;
-    Assert.assertThat(list).contains(item);
+    Assert.that(list).contains(item);
 
 This is a lot like separate `StringAssert`, `ListAssert`, etc., classes, which I had used before. `Assert.that` is just a hack to move the choosing of an `XxxAssert` class to the compiler based on method overloading instead of the programming typing each one out.
 
-This is somewhat like [Hamcrest][1] (which was integrated into JUnit 4.4), but without the Matcher static import methods. Nothing against static import methods, but I like `assertThat` returning the appropriate `StringAsserter`, `ListAsserter`, etc., just based on basic Java method overloading.
+This is somewhat like [Hamcrest][1] (which was integrated into JUnit 4.4), but without the Matcher static import methods. Nothing against static import methods, but I like `that` returning the appropriate `StringAsserter`, `ListAsserter`, etc., just based on basic Java method overloading.
 
 Granted, this approach cannot handle `or` type nested logical statements, but that is just fine with me. I like simple assertions.
 
@@ -25,10 +25,10 @@ To extend and add your own assertion classes/methods, you should make your own `
 
     package com.yourapp;
     public class Assert extends org.exigencecorp.Assert {
-      public static YourStringAsserter assertThat(String string) {
+      public static YourStringAsserter that(String string) {
         return new YourStringAsserter(string);
       }
-      public static WidgetAsserter assertThat(Widget widget) {
+      public static WidgetAsserter that(Widget widget) {
         return new WidgetAsserter(widget);
       }
     }
