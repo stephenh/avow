@@ -5,12 +5,12 @@ Example
 =======
 
     String foo = "asdf";
-    Assert.that(foo).equals("asdf");
+    Avow.that(foo).equals("asdf");
 
     List list = ...;
-    Assert.that(list).contains(item);
+    Avow.that(list).contains(item);
 
-This is a lot like separate `StringAssert`, `ListAssert`, etc., classes, which I had used before. `Assert.that` is just a hack to move the choosing of an `XxxAssert` class to the compiler based on method overloading instead of the programming typing each one out.
+This is a lot like separate `StringAssert`, `ListAssert`, etc., classes, which I had used before. `Avow.that` is just a hack to move the choosing of an `XxxAssert` class to the compiler based on method overloading instead of the programming typing each one out.
 
 This is somewhat like [Hamcrest][1] (which was integrated into JUnit 4.4), but without the Matcher static import methods. Nothing against static import methods, but I like `that` returning the appropriate `StringAsserter`, `ListAsserter`, etc., just based on basic Java method overloading.
 
@@ -21,10 +21,10 @@ Granted, this approach cannot handle `or` type nested logical statements, but th
 Extending
 =========
 
-To extend and add your own assertion classes/methods, you should make your own `Assert` class, e.g.:
+To extend and add your own assertion classes/methods, you should make your own `Avow` class, e.g.:
 
     package com.yourapp;
-    public class Assert extends org.exigencecorp.Assert {
+    public class Avow extends org.exigencecorp.avow.Avow {
       public static YourStringAsserter that(String string) {
         return new YourStringAsserter(string);
       }
@@ -40,5 +40,5 @@ Then just have:
 
 And add your own assertion methods to each class.
 
-Then when using `Assert.that` in your tests, just make sure you import your own `Assert` subclass instead of the base class (or JUnit's `Assert` for that matter).
+Then when using `Avow.that` in your tests, just make sure you import your own `Avow` subclass instead of the base class.
 

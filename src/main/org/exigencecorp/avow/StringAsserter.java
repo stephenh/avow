@@ -1,4 +1,4 @@
-package org.exigencecorp.assertions;
+package org.exigencecorp.avow;
 
 import junit.framework.ComparisonFailure;
 

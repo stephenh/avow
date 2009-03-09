@@ -1,10 +1,10 @@
-package org.exigencecorp.assertions;
+package org.exigencecorp.avow;
 
 import java.util.List;
 
 import junit.framework.AssertionFailedError;
 
-public class Assert {
+public class Avow {
 
     public static <T> ObjectAsserter<T> that(T o) {
         return new ObjectAsserter<T>(o);
